@@ -1,16 +1,8 @@
-import Home from './routes/home.component';
-import { Routes, Route, Outlet } from 'react-router-dom';
-
+import { Routes, Route } from 'react-router-dom';
+import Home from './routes/home/home.component';
+import Naigation from './routes/navigation/navigation.component';
+import SignIn from './routes/sign-in/sign-in.component';
 const App = () => {
-  const Naigation = () => {
-    return (
-      <div>
-        <h1>i am the navigation page</h1>
-        <Outlet />
-      </div>
-    );
-  };
-
   const Shop = () => {
     return <h1>i am the shop page</h1>;
   };
@@ -20,6 +12,7 @@ const App = () => {
       <Route path="/" element={<Naigation />}>
         <Route index element={<Home />} />
         <Route path="shop" element={<Shop />} />
+        <Route path="sign-in" element={<SignIn />} />
       </Route>
     </Routes>
   );
