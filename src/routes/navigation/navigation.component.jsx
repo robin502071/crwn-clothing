@@ -7,11 +7,8 @@ import { useContext } from 'react';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 const Naigation = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
+  const { currentUser } = useContext(UserContext);
+
   return (
     <Fragment>
       <div className="navigation">
@@ -24,7 +21,7 @@ const Naigation = () => {
             Shop
           </Link>
           {currentUser ? (
-            <span className="nav-link" onClick={signOutHandler}>
+            <span className="nav-link" onClick={signOutUser}>
               Sign Out
             </span>
           ) : (

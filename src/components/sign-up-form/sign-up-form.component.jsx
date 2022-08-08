@@ -1,9 +1,8 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../utils/firebase/firebase.utils';
-import { UserContext } from '../contexts/user.context';
 import FormInput from '../form-input/form-input.component';
 import './sign-up-form-styles.scss';
 import Button from '../button/button.component';
@@ -17,7 +16,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
-  const { setCurrentUser } = useContext(UserContext);
+
   // console.log(formFields);
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -35,7 +34,7 @@ const SignUpForm = () => {
         email,
         password
       );
-      setCurrentUser(user);
+
       // 這邊覆寫 displayName 進去是本課程講師做法，本來 Firebase 應是有
       await createUserDocumentFromAuth(user, { displayName });
       setFormFields(defaultFormFields);
