@@ -68,15 +68,16 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
   // 4. await getDocs(query)
   const querySnapShot = await getDocs(q);
-  // 5. querySnapShot.docs 可以得到一個陣列，我們要的資料都在裡頭，但還是要再處理
-  const categoryMap = querySnapShot.docs.reduce((acc, docSnapShot) => {
-    // 6. docSnapShot.data() 才是我們真正要的那一筆 document 物件
-    const { title, items } = docSnapShot.data();
-    // 7. 將我們需要的資料合併成一個大物件
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-  return categoryMap;
+  return querySnapShot.docs.map((docSnapShop) => docSnapShop.data());
+  // // 5. querySnapShot.docs 可以得到一個陣列，我們要的資料都在裡頭，但還是要再處理
+  // const categoryMap = querySnapShot.docs.reduce((acc, docSnapShot) => {
+  //   // 6. docSnapShot.data() 才是我們真正要的那一筆 document 物件
+  //   const { title, items } = docSnapShot.data();
+  //   // 7. 將我們需要的資料合併成一個大物件
+  //   acc[title.toLowerCase()] = items;
+  //   return acc;
+  // }, {});
+  // return categoryMap;
 };
 
 export const createUserDocumentFromAuth = async (
