@@ -8,8 +8,7 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 const Checkout = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
-  const cartData = window.localStorage.getItem('persist:root');
-  console.log(JSON.parse(cartData));
+
   return (
     <div className="checkout-container">
       <div className="checkout-header">
