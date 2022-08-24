@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector } from '@reduxjs/toolkit';
 
 const selectCategoriesReducer = (state) => {
   console.log('selector 1 fired');

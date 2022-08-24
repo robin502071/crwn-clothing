@@ -67,6 +67,7 @@ export const getCategoriesAndDocuments = async () => {
   // 3. 得到 query 查詢 => 呼叫 query(collection 實例)
   const q = query(collectionRef);
   // 4. await getDocs(query)
+  // await Promise.reject(new Error('oops'))
   const querySnapShot = await getDocs(q);
   return querySnapShot.docs.map((docSnapShop) => docSnapShop.data());
   // // 5. querySnapShot.docs 可以得到一個陣列，我們要的資料都在裡頭，但還是要再處理
