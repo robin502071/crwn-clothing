@@ -2,7 +2,7 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import { rootReducer } from './root-reducer';
 import { persistStore, persistReducer } from 'redux-persist';
-import thunk from 'redux-thunk';
+import thunk from '@reduxjs/toolkit';
 // 在任何瀏覽器中這個 storage 預設為 local stoage
 import storage from 'redux-persist/lib/storage';
 
